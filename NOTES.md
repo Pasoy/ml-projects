@@ -44,3 +44,9 @@ find structure in a chatoic environment
 We can measure the accuracy of our hypothesis by using the cost function. It takes an average difference of all the results.  
 Idea is to choose θ0 and θ1 so that hθ(x) is close to our data examples (x, y)  
 ![alt text](https://github.com/Pasoy/ml-projects/blob/master/images/cost_function.png "Cost function")
+
+## Gradient descent
+Algorithm which is the foundation of many others.  
+*We want to find the lowest point*.  
+The *weights* need to be adjusted as if we are "going down". We make small adjustments to our weights that we are slowly getting closer to the lowest point.  
+We can calculate the derivative of our function to see which way is going downhill.
