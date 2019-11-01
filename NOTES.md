@@ -43,7 +43,7 @@ find structure in a chatoic environment
 ## Cost function
 We can measure the accuracy of our hypothesis by using the cost function. It takes an average difference of all the results.  
 Idea is to choose θ0 and θ1 so that hθ(x) is close to our data examples (x, y)  
-![alt text](https://github.com/Pasoy/ml-projects/blob/master/images/cost_function.png "Cost function")
+<img width="40%" height="40%" src="https://github.com/Pasoy/ml-projects/blob/master/images/cost_function.png">
 
 ## Gradient descent
 Algorithm which is the foundation of many others.  
