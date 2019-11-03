@@ -74,3 +74,4 @@ Algorithm which is the foundation of many others.
 *We want to find the lowest point*.  
 The *weights* need to be adjusted as if we are "going down". We make small adjustments to our weights that we are slowly getting closer to the lowest point.  
 We can calculate the derivative of our function to see which way is going downhill.
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/gradient_descent.png">
