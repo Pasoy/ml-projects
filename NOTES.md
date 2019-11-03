@@ -26,12 +26,12 @@ h(x)
 ## Unsupervised learning
 We are given data, but don't know what to do with it. Let the algorithm figure it out.
 
-### clustering algorithm
+### Clustering algorithm
 
  * Given a set of news articles, automatically group them into sets of articles about the same story
  * Given a database of customer data, discover market segments and group customers into different market segments
 
-### cocktail party algorithm
+### Cocktail party algorithm
 find structure in a chatoic environment
 
 ```
@@ -42,9 +42,11 @@ find structure in a chatoic environment
  
 ## Cost function
 We can measure the accuracy of our hypothesis by using the cost function. It takes an average difference of all the results.  
-Idea is to choose θ0 and θ1 so that hθ(x) is close to our data examples (x, y)  
+Idea is to choose θ0 and θ1 so that hθ(x) is close to our data examples (x, y).  
+
+### Formula
 <img width="40%" height="40%" src="https://github.com/Pasoy/ml-projects/blob/master/images/cost_function.png">  
-Calculation is the hypothesis value for h(x), minus the actual value of y and then we square
+Calculation is the hypothesis value for h(x), minus the actual value of y and then we square.
 ```python
 import numpy as np
 
@@ -73,5 +75,19 @@ e.g
 Algorithm which is the foundation of many others.  
 *We want to find the lowest point*.  
 The *weights* need to be adjusted as if we are "going down". We make small adjustments to our weights that we are slowly getting closer to the lowest point.  
-We can calculate the derivative of our function to see which way is going downhill.
-<img src="https://github.com/Pasoy/ml-projects/blob/master/images/gradient_descent.png">
+We can calculate the derivative of our function to see which way is going downhill.  
+
+### Formula 
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/gradient_descent.png">  
+ * alpha is the learning rate (controls how big a step is)
+ * alpha is always a positive number
+ * term after alpha is called the derivative
+ * := is an assignment
+ * j represents the feature index number
+In gradient descent we simultaneously update θ0 and θ1.  
+If already at the local minimum it will not change.
+
+### Learning rate (alpha)
+ * is it is too small, gradient descent can be slow
+ * if it is too large, gradient descent can overshoot the minimum. it may fail to converge or even diverge
+ * after descent, it will automatically take smaller steps 
