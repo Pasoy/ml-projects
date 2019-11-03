@@ -46,7 +46,8 @@ Idea is to choose θ0 and θ1 so that hθ(x) is close to our data examples (x, y
 
 ### Formula
 <img width="40%" height="40%" src="https://github.com/Pasoy/ml-projects/blob/master/images/cost_function.png">    
-Calculation is the hypothesis value for h(x), minus the actual value of y and then we square.  
+Calculation is the hypothesis value for h(x), minus the actual value of y and then we square
+
 ```python
 import numpy as np
 
