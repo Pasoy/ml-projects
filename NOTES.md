@@ -140,13 +140,40 @@ to add matrixes, they have to be the same dimension.
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_scalar.png">  
 
 ### Multiplication with a vector
-Here is a website for [good visualization]: http://matrixmultiplication.xyz/
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_vector_multi.png">  
 
+ * result is a vector
+ * number of columns of the matrix must equal the number of rows of the vector
 
+Here is a website for good visualization: http://matrixmultiplication.xyz/
+
+### Matrix matrix multiplication
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_matrix_multi.png">  
+
+ * result is a matrix (dimension: M1 columns * M2 rows)
+ * number of columns in the first matrix must match the number of rows in the second matrix
+ * can be used to predict something (if `h(x)` is given and sample data; see below)
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_matrix_multi_predictions.png">
+
+### Identity matrix
+ * denoted `I (or In*n)`
+ * it can be a different dimension
+ * for any matrix A, `A*I = I*A = A`
+
+### Properties
+ * `A * B != B * A` - not commutitive
+ * `A*(B*C) = (A*B)*C` - is associative
+
+### MATLAB
 ```matlab
 % Create matrixes
 A = [1, 2, 4; 5, 3, 2]
 B = [1, 3, 4; 1, 1, 1]
+
+% Create a 3 by 3 identity matrix
+I = eye(3)
+
+% The above notation is the same as I = [1,0,0;0,1,0;0,0,1]
 
 % Initialize constant s 
 s = 2
@@ -175,6 +202,7 @@ div_As = A / s
 y(i) = the element if row i
 ```
 
+### MATLAB
 ```matlab
 % Create a vector 
 v = [1;2;3] 
