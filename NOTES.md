@@ -80,6 +80,7 @@ We can calculate the derivative of our function to see which way is going downhi
 
 ### Formula 
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/gradient_descent.png">  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/gradient_descent_1.png">  
  * alpha is the learning rate (controls how big a step is)
  * alpha is always a positive number
  * term after alpha is called the derivative
