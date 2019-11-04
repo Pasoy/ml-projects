@@ -229,3 +229,12 @@ v = [1;2;3]
 % Get the dimension
 dim_v = size(v)
 ```
+
+***
+
+## Multiple features (variables)
+ * n = number of vars
+ * x(i) = input of i-th training example
+ * xj(i) = value of var j in i-th training example
+ 
+### Formula
