@@ -77,6 +77,7 @@ Algorithm which is the foundation of many others.
 *We want to find the lowest point*.  
 The *weights* need to be adjusted as if we are "going down". We make small adjustments to our weights that we are slowly getting closer to the lowest point.  
 We can calculate the derivative of our function to see which way is going downhill.  
+For functions used in linear regression, there is only a global optimum (no local optima).  
 
 ### Formula 
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/gradient_descent.png">  
@@ -92,4 +93,7 @@ If already at the local minimum it will not change.
 ### Learning rate (alpha)
  * is it is too small, gradient descent can be slow
  * if it is too large, gradient descent can overshoot the minimum. it may fail to converge or even diverge
- * after descent, it will automatically take smaller steps 
+ * after descent, it will automatically take smaller steps
+ 
+### "Batch" gradient descent
+Means each step of gradient descent uses all training data.
