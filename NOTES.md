@@ -232,9 +232,32 @@ dim_v = size(v)
 
 ***
 
-## Multiple features (variables)
+## Linear regression with multiple variables (features)
  * n = number of vars
  * x(i) = input of i-th training example
  * xj(i) = value of var j in i-th training example
  
 ### Formula
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/reg_new_hypothesis.png">  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/reg_new_hypothesis_1.png">  
+
+## Gradient descent for multiple variables
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/gradient_descent_new.png">  
+
+### Feature scaling
+the idea is that the features are on a similar scale.   
+ * it takes less time, because it will descend quickly on small ranges
+ * more accurate
+ * less complicated  
+
+get every feature into a `-1 =< x(i) <= 1` range. of course, it can be a bit bigger.
+
+### Mean normalization
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/gradient_descent_mean.png">  
+
+replace `x(i) with x(i) - phi(i)`. phi being the average value of the training examples. also divide by `s(i)` (the range of values (max-min) ).  
+```
+e.g we have an algorithm to estimate the life span of a tree.
+in our training set, we have trees with the life span between 5 and 30 years. our average is 13 years.
+x(i) = (life span - 13) / 25
+```
