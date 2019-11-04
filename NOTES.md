@@ -100,7 +100,10 @@ If already at the local minimum it will not change.
 ### "Batch" gradient descent
 Means each step of gradient descent uses all training data.
 
+***
+
 # Linear algebra
+
 ## Matrix
  * is an rectangular array of numbers.  
  * dimension of matrix: number of rows * number of columns.  
@@ -159,6 +162,20 @@ Here is a website for good visualization: http://matrixmultiplication.xyz/
  * denoted `I (or In*n)`
  * it can be a different dimension
  * for any matrix A, `A*I = I*A = A`
+ 
+### Inverse
+ * if a matrix is a square matrix (m*m), and has an inverse, then `A*(A^(-1)) = I`. I being the identity matrix
+ * matrices which don't have an inverse are "**singular**" or "**degenerate**"
+ 
+### Transpose
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_transpose_1.png">  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_transpose_2.png">  
+
+ * means sort of flipping the matrix
+ * denoted `A *superscript* T`
+ * rows become the columns
+ * columns become rows
+ * `B(i,j) = A(j,i)`
 
 ### Properties
  * `A * B != B * A` - not commutitive
@@ -190,6 +207,8 @@ mult_As = A * s
 % Divide A by s
 div_As = A / s
 ```
+
+***
 
 ## Vector
  * usually lowercase
