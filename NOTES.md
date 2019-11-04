@@ -131,6 +131,38 @@ A_23 = A(2,3)
 
 ```
 
+### Addition
+to add matrixes, they have to be the same dimension.  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_addition.png"> 
+
+### Scalar multiplication/division
+*scalar is a real number*
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_scalar.png">  
+
+### Multiplication with a vector
+[Good visualization]: http://matrixmultiplication.xyz/
+
+```matlab
+% Create matrixes
+A = [1, 2, 4; 5, 3, 2]
+B = [1, 3, 4; 1, 1, 1]
+
+% Initialize constant s 
+s = 2
+
+% See how element-wise addition works
+add_AB = A + B 
+
+% See how element-wise subtraction works
+sub_AB = A - B
+
+% See how scalar multiplication works
+mult_As = A * s
+
+% Divide A by s
+div_As = A / s
+```
+
 ## Vector
  * usually lowercase
  * is an `n * 1` matrix
