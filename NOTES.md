@@ -135,7 +135,7 @@ A_23 = A(2,3)
 ```
 
 ### Addition
-to add matrixes, they have to be the same dimension.  
+to add matrices, they have to be the same dimension.  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_addition.png"> 
 
 ### Scalar multiplication/division
@@ -183,7 +183,7 @@ Here is a website for good visualization: http://matrixmultiplication.xyz/
 
 ### MATLAB
 ```matlab
-% Create matrixes
+% Create matrices
 A = [1, 2, 4; 5, 3, 2]
 B = [1, 3, 4; 1, 1, 1]
 
