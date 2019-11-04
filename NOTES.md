@@ -255,7 +255,7 @@ get every feature into a `-1 =< x(i) <= 1` range. of course, it can be a bit big
 ### Mean normalization
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/gradient_descent_mean.png">  
 
-replace `x(i) with x(i) - phi(i)`. phi being the average value of the training examples. also divide by `s(i)` (the range of values (max-min) ).  
+replace `x(i) with x(i) - μ(i)`. μ being the average value of the training examples. also divide by `s(i)` (the range of values (max-min) ).  
 ```
 e.g we have an algorithm to estimate the life span of a tree.
 in our training set, we have trees with the life span between 5 and 30 years. our average is 13 years.
