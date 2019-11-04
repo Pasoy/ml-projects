@@ -99,3 +99,53 @@ If already at the local minimum it will not change.
  
 ### "Batch" gradient descent
 Means each step of gradient descent uses all training data.
+
+# Linear algebra
+## Matrix
+ * is an rectangular array of numbers.  
+ * dimension of matrix: number of rows * number of columns.  
+ * usually uppercase
+ 
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_example_1.png">  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_example_2.png">  
+
+### Elements
+```
+A(i,j) = "i, j entry" in the row i and in the column j
+e.g. from first matrix example
+A(2,1) = 3
+```
+
+```matlab
+% The ; refers to a new line
+A = [1, 2, 3; 4, 5, 6; 7, 8, 9; 10, 11, 12]
+
+% Get dimension of the matrix
+[m,n] = size(A)
+
+% You could also store it this way
+dim_A = size(A)
+
+% Now let's index into the 2nd row 3rd column of matrix A
+A_23 = A(2,3)
+
+```
+
+## Vector
+ * usually lowercase
+ * is an `n * 1` matrix
+ * dimension = number of rows
+ * 1-indexed (more common) / 0-indexed vectors
+ 
+### Elements
+```
+y(i) = the element if row i
+```
+
+```matlab
+% Create a vector 
+v = [1;2;3] 
+
+% Get the dimension
+dim_v = size(v)
+```
