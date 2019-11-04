@@ -136,11 +136,12 @@ to add matrixes, they have to be the same dimension.
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_addition.png"> 
 
 ### Scalar multiplication/division
-*scalar is a real number*
+*scalar is a real number*  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_scalar.png">  
 
 ### Multiplication with a vector
-[Good visualization]: http://matrixmultiplication.xyz/
+Here is a website for [good visualization]: http://matrixmultiplication.xyz/
+
 
 ```matlab
 % Create matrixes
