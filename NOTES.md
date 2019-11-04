@@ -82,11 +82,13 @@ For functions used in linear regression, there is only a global optimum (no loca
 ### Formula 
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/gradient_descent.png">  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/gradient_descent_1.png">  
+
  * alpha is the learning rate (controls how big a step is)
  * alpha is always a positive number
  * term after alpha is called the derivative
  * := is an assignment
- * j represents the feature index number
+ * j represents the feature index number  
+
 In gradient descent we simultaneously update θ0 and θ1.  
 If already at the local minimum it will not change.
 
