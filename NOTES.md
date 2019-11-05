@@ -96,9 +96,14 @@ If already at the local minimum it will not change.
  * is it is too small, gradient descent can be slow
  * if it is too large, gradient descent can overshoot the minimum. it may fail to converge or even diverge
  * after descent, it will automatically take smaller steps
+ * to choose the rate, try a range of numbers like `..., 0.001, 0.01, 0.1, 1,..`
  
 ### "Batch" gradient descent
 Means each step of gradient descent uses all training data.
+
+### Debugging
+make a plot with *number of iterations* (noi) on the x-axis. plot the cost function over the *noi* of gradient descent.  
+if the cost function increases, we probably need to decrease our learning rate. 
 
 ***
 
@@ -236,7 +241,9 @@ dim_v = size(v)
  * n = number of vars
  * x(i) = input of i-th training example
  * xj(i) = value of var j in i-th training example
- 
+
+We can improve the features and form the hypthesis in different ways. We can **combine** multiple features into one. (`x1 and x2 -> x3 = x1*x2`)
+
 ### Formula
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/reg_new_hypothesis.png">  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/reg_new_hypothesis_1.png">  
@@ -260,4 +267,16 @@ replace `x(i) with x(i) - μ(i)`. μ being the average value of the training exa
 e.g we have an algorithm to estimate the life span of a tree.
 in our training set, we have trees with the life span between 5 and 30 years. our average is 13 years.
 x(i) = (life span - 13) / 25
+```
+
+## Polynomial regression
+It is possible to change the curve of our hypothesis by making it *quadratic*, *cubic* or to the *square root* and more.  
+It is **important** to scale our features! Because `x1 = 100 -> x1^2 = 10,000 -> x1^3 ? 1,000,000`
+
+```
+e.g h(x) = θ0 + θ1 * x1
+we can create additional features based on our x1
+- quadratic: h(x) = θ0 + θ1 * x1 + θ2 * x1^2
+- cubic: h(x) = θ0 + θ1 * x1 + θ2 * x1^2 + θ3 * x1^3
+- square root: h(x) = θ0 + θ1 * x1 + θ2 * sqrt(x1)
 ```
