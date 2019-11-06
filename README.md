@@ -1,5 +1,5 @@
 # Information / Maths
-in [a relative link](NOTES.md)
+in [the notes file](NOTES.md)
 
 # Installation Jupyter Notebook (on WSL - Ubuntu)
 
