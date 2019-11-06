@@ -310,8 +310,8 @@ pinv(transpose(X) * X) * transpose(X) * y
 ### Example
 1. we need to create a new feature an fill it with 1s.  
 2. convert to matrices and vectors.  
-<img src="https://github.com/Pasoy/ml-projects/blob/master/images/normal_equation_ex1.png">  
-<img src="https://github.com/Pasoy/ml-projects/blob/master/images/normal_equation_ex1_done.png">  
+<img width="50%" height="50%" src="https://github.com/Pasoy/ml-projects/blob/master/images/normal_equation_ex1.png">  
+<img width="50%" height="50%" src="https://github.com/Pasoy/ml-projects/blob/master/images/normal_equation_ex1_done.png">  
 3. After that we need to fill it in, in our formula.  
  
 ### Gradient descent vs Normal equation
