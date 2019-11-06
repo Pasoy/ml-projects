@@ -33,5 +33,5 @@ source ~/.bashrc
 
 ## Start Jupyter Notebook
 ```
-jupyter notebook
+jupyter-notebook
 ```
