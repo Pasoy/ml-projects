@@ -258,6 +258,7 @@ We can improve the features and form the hypthesis in different ways. We can **c
 ### Feature scaling
 The idea is that the features are on a similar scale.   
  * It takes less time, because it will descend quickly on small ranges
+   * Speeds up gradient descent by making it require fewer iterations to get to a good solution
  * More accurate
  * Less complicated  
 
@@ -293,6 +294,11 @@ a method to solve for θ analytically.
  * Do not need to iterate
  * Slow if features are very large
  * Works well if small features (e.g. *10^2*)
+ 
+### Dimensions
+ * `X` has m rows and n + 1 columns (+1 because of the x0=1)  
+ * `y` is an m-vector.  
+ * `θ` is an (n+1)-vector.  
 
 ### Non-invertibility
 #### Causes
