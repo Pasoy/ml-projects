@@ -12,9 +12,9 @@ P = probability that the program will win the next game
 ## Supervised learning
 We are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.
 
- * right answers given
- * regression (goal is to predict a continuous valued output)
- * classification (output 0 or 1)
+ * Right answers given
+ * Regression (goal is to predict a continuous valued output)
+ * Classification (output 0 or 1)
 
 Data set is called **Training Set**. It is then being fed to our learning algorithm. Will output a function, which by convention is usually denoted *h*.  
 h stands for hypothesis > the function maps from x's to y's  
@@ -83,9 +83,9 @@ For functions used in linear regression, there is only a global optimum (no loca
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/gradient_descent.png">  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/gradient_descent_1.png">  
 
- * alpha is the learning rate (controls how big a step is)
- * alpha is always a positive number
- * term after alpha is called the derivative
+ * Alpha is the learning rate (controls how big a step is)
+ * Alpha is always a positive number
+ * Term after alpha is called the derivative
  * := is an assignment
  * j represents the feature index number  
 
@@ -93,26 +93,26 @@ In gradient descent we simultaneously update θ0 and θ1.
 If already at the local minimum it will not change.
 
 ### Learning rate (alpha)
- * is it is too small, gradient descent can be slow
- * if it is too large, gradient descent can overshoot the minimum. it may fail to converge or even diverge
- * after descent, it will automatically take smaller steps
- * to choose the rate, try a range of numbers like `..., 0.001, 0.01, 0.1, 1,..`
+ * Is it is too small, gradient descent can be slow
+ * If it is too large, gradient descent can overshoot the minimum. it may fail to converge or even diverge
+ * After descent, it will automatically take smaller steps
+ * To choose the rate, try a range of numbers like `..., 0.001, 0.01, 0.1, 1,..`
  
 ### "Batch" gradient descent
 Means each step of gradient descent uses all training data.
 
 ### Debugging
-make a plot with *number of iterations* (noi) on the x-axis. plot the cost function over the *noi* of gradient descent.  
-if the cost function increases, we probably need to decrease our learning rate. 
+Make a plot with *number of iterations* (noi) on the x-axis. plot the cost function over the *noi* of gradient descent.  
+If the cost function increases, we probably need to decrease our learning rate. 
 
 ***
 
 # Linear algebra
 
 ## Matrix
- * is an rectangular array of numbers.  
- * dimension of matrix: number of rows * number of columns.  
- * usually uppercase
+ * Is an rectangular array of numbers.  
+ * Dimension of matrix: number of rows * number of columns.  
+ * Usually uppercase
  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_example_1.png">  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_example_2.png">  
@@ -140,46 +140,46 @@ A_23 = A(2,3)
 ```
 
 ### Addition
-to add matrices, they have to be the same dimension.  
+To add matrices, they have to be the same dimension.  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_addition.png"> 
 
 ### Scalar multiplication/division
-*scalar is a real number*  
+*Scalar is a real number*  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_scalar.png">  
 
 ### Multiplication with a vector
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_vector_multi.png">  
 
- * result is a vector
- * number of columns of the matrix must equal the number of rows of the vector
+ * Result is a vector
+ * Number of columns of the matrix must equal the number of rows of the vector
 
 Here is a website for good visualization: http://matrixmultiplication.xyz/
 
 ### Matrix matrix multiplication
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_matrix_multi.png">  
 
- * result is a matrix (dimension: M1 columns * M2 rows)
- * number of columns in the first matrix must match the number of rows in the second matrix
- * can be used to predict something (if `h(x)` is given and sample data; see below)
+ * Result is a matrix (dimension: M1 columns * M2 rows)
+ * Number of columns in the first matrix must match the number of rows in the second matrix
+ * Can be used to predict something (if `h(x)` is given and sample data; see below)
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_matrix_multi_predictions.png">
 
 ### Identity matrix
- * denoted `I (or In*n)`
- * it can be a different dimension
- * for any matrix A, `A*I = I*A = A`
+ * Denoted `I (or In*n)`
+ * It can be a different dimension
+ * For any matrix A, `A*I = I*A = A`
  
 ### Inverse
- * if a matrix is a square matrix (m*m), and has an inverse, then `A*(A^(-1)) = I`. I being the identity matrix
- * matrices which don't have an inverse are "**singular**" or "**degenerate**"
+ * If a matrix is a square matrix (m*m), and has an inverse, then `A*(A^(-1)) = I`. I being the identity matrix
+ * Matrices which don't have an inverse are "**singular**" or "**degenerate**"
  
 ### Transpose
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_transpose_1.png">  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/matrix_transpose_2.png">  
 
- * means sort of flipping the matrix
- * denoted `A *superscript* T`
- * rows become the columns
- * columns become rows
+ * Means sort of flipping the matrix
+ * Denoted `A *superscript* T`
+ * Rows become the columns
+ * Columns become rows
  * `B(i,j) = A(j,i)`
 
 ### Properties
@@ -216,9 +216,9 @@ div_As = A / s
 ***
 
 ## Vector
- * usually lowercase
- * is an `n * 1` matrix
- * dimension = number of rows
+ * Usually lowercase
+ * Is an `n * 1` matrix
+ * Dimension = number of rows
  * 1-indexed (more common) / 0-indexed vectors
  
 ### Elements
@@ -251,18 +251,22 @@ We can improve the features and form the hypthesis in different ways. We can **c
 ## Gradient descent for multiple variables
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/gradient_descent_new.png">  
 
+ * Need to choose learning rate
+ * Needs many iterations
+ * Works well even when features are large (if larger than e.g. *10^6*)
+
 ### Feature scaling
-the idea is that the features are on a similar scale.   
- * it takes less time, because it will descend quickly on small ranges
- * more accurate
- * less complicated  
+The idea is that the features are on a similar scale.   
+ * It takes less time, because it will descend quickly on small ranges
+ * More accurate
+ * Less complicated  
 
 get every feature into a `-1 =< x(i) <= 1` range. of course, it can be a bit bigger.
 
 ### Mean normalization
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/gradient_descent_mean.png">  
 
-replace `x(i) with x(i) - μ(i)`. μ being the average value of the training examples. also divide by `s(i)` (the range of values (max-min) ).  
+Replace `x(i) with x(i) - μ(i)`. μ being the average value of the training examples. also divide by `s(i)` (the range of values (max-min) ).  
 ```
 e.g we have an algorithm to estimate the life span of a tree.
 in our training set, we have trees with the life span between 5 and 30 years. our average is 13 years.
@@ -280,3 +284,40 @@ we can create additional features based on our x1
 - cubic: h(x) = θ0 + θ1 * x1 + θ2 * x1^2 + θ3 * x1^3
 - square root: h(x) = θ0 + θ1 * x1 + θ2 * sqrt(x1)
 ```
+
+## Normal equation
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/normal_equation.png">  
+a method to solve for θ analytically.  
+
+ * No need to choose learning rate
+ * Do not need to iterate
+ * Slow if features are very large
+ * Works well if small features (e.g. *10^2*)
+
+### Non-invertibility
+#### Causes
+ * Redundant features (linearly dependent)
+   * `x1 = size in feet^2`
+   * `x2 = size in m^2`
+ * Too many features
+   * delete some features, or use regularisation
+
+### MATLAB
+```matlab
+pinv(transpose(X) * X) * transpose(X) * y
+```
+
+### Example
+1. we need to create a new feature an fill it with 1s.  
+2. convert to matrices and vectors.  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/normal_equation_ex1.png">  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/normal_equation_ex1_done.png">  
+3. After that we need to fill it in, in our formula.  
+ 
+### Gradient descent vs Normal equation
+
+Gradient Descent | Normal Equation
+------------ | -------------
+needs to choose alpha | no need to choose alpha
+many iterations | Content in the second column
+works well when features large | slow if features large
