@@ -1,6 +1,47 @@
 # Machine Learning
 Here are some notes I took from doing courses/reading books.
 
+## Contents
+- [What is Machine Learning?](#what-is-machine-learning)
+- [Supervised Learning](#supervised-learning)
+- [Unsupervised Learning](#unsupervised-learning)
+    - [Clustering Algorithm](#clustering-algorithm)
+    - [Cocktail Party Algorithm](#cocktail-party-algorithm)
+- [Cost Function](#cost-function)
+    - [Formula](#formula)
+- [Gradient Descent](#gradient-descent)
+    - [Formula](#formula-1)
+    - [Learning Rate](#learning-rate-alpha)
+    - ["Batch" Gradient Descent](#batch-gradient-descent)
+    - [Debugging](#debugging)
+- [Matrix](#matrix)
+    - [Elements](#elements)
+    - [Addition](#addition)
+    - [Scalar Multiplication/Division](#scalar-multiplicationdivision)
+    - [Multiplication with a Vector](#multiplication-with-a-vector)
+    - [Matrix Matrix Multiplication](#matrix-matrix-multiplication)
+    - [Identity Matrix](#identity-matrix)
+    - [Inverse](#inverse)
+    - [Transpose](#transpose)
+    - [Properties](#properties)
+    - [MATLAB](#matlab)
+- [Vector](#vector)
+    - [Elements](#elements-1)
+    - [MATLAB](#matlab-1)
+- [Linear Regression with Multiple Features](#linear-regression-with-multiple-variables-features)
+    - [Formula](#formula-2)
+- [Gradient Descent for Multiple Features](#gradient-descent-for-multiple-variables)
+    - [Feature Scaling](#feature-scaling)
+    - [Mean Normalization](#mean-normalization)
+- [Polynomial Regression](#polynomial-regression)
+- [Normal Equation](#normal-equation)
+    - [Dimensions](#dimensions)
+    - [Non-Invertibility](#non-invertibility)
+       - [Causes](#causes)
+    - [MATLAB](#matlab-2)
+    - [Example](#example)
+    - [Gradient Descent vs Normal Equation](#gradient-descent-vs-normal-equation)
+
 ## What is Machine Learning?
 > "A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E." - Tom Mitchell
 
