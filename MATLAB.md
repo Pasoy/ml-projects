@@ -87,6 +87,9 @@ I = eye(4)
 
 % help for commands
 help(eye)
+
+% add search path
+addpath('C:/smh')
 ```
 
 ## Move data around
@@ -318,3 +321,44 @@ imagesc(A), colorbar, colormap gray
 a = 1, b = 2, c = 3
 a = 1; b = 2; c = 3;
 ```
+
+## Control statements
+ * for
+ * while
+ * if
+ 
+```matlab
+v = zeroes(10,1)
+
+% For loop
+for i = 1:10, 
+  v(i) = 2^i;
+end;
+
+% While loop
+i = 1;
+while i <= 5,
+  v(i) = 100;
+  i = i+1;
+end;
+
+while true,
+  v(i) = 999;
+  i = i+1;
+  if i = 6,
+    break;
+  end;
+end;
+
+% If
+v(1) = 2;
+if v(1) == 1,
+  disp('Value is one');
+elseif v(1) == 2,
+  disp('Value is two');
+else
+  disp('Value is neither');
+end;
+```
+
+## Vectorization
