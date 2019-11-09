@@ -360,5 +360,3 @@ else
   disp('Value is neither');
 end;
 ```
-
-## Vectorization
