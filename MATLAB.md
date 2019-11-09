@@ -258,3 +258,63 @@ flipud(eye(9))
 % Invert matrix
 pinv(A)
 ```
+
+## Plot data
+```matlab
+t = [0:0.01:0.98]
+y1 = sin(2*pi*4*t)
+y2 = cos(2*pi*4*t)
+
+% Plot data; horizontal axis being first parameter and vertical being second one
+plot(t,y1)
+
+% Plot both functions
+hold on;
+plot(t,y2)
+
+%  Plot function with different color
+plot(t,y2,'r')
+
+% Name horizontal axis
+xlabel('time')
+
+% Name vertical axis
+ylabel('value')
+
+% Name functions
+legend('sin', 'cos')
+
+% Set title of plot
+title('cool plot')
+
+% Save plot as PNG
+print -dpng 'plot.png'
+
+% Close a plot
+close
+
+% Specify figure numbers
+figure(1); plot(t,y1)
+figure(2); plot(t,y2)
+
+% Divides plot to a 1x2 grid, access n-th element
+subplot(1,2,1)
+plot(t,y1)
+subplot(1,2,2)
+plot(t,y2)
+
+% Change axis scales
+axis([0.5 1 -1 1])
+
+% Clear figure
+clf
+
+% Visualize matrix
+A = magic(5)
+imagesc(A)
+imagesc(A), colorbar, colormap gray
+
+% Entering multiple commands
+a = 1, b = 2, c = 3
+a = 1; b = 2; c = 3;
+```
