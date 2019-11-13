@@ -368,3 +368,31 @@ Gradient Descent | Normal Equation
 needs to choose alpha | no need to choose alpha
 many iterations | Content in the second column
 works well when features large | slow if features large
+
+# Classification and Representation
+ * Email: Spam / Not Spam?
+ * News: Fake (Yes / No)
+  
+This is a binary classification problem. We are trying to predict a value `y` and have a result of either `1` or `0`.
+ * 0: "Negative Class"
+ * 1: "Positive Class"
+  
+Applying linear regression to a classification problem is not a great idea. Cost function may change if one data sample is far away from the other training examples.
+
+## Hypothesis Representation
+We want `0 < h(x) < 1`.
+
+### Formula
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/hypothesis_representation.png">  
+The new formula uses the **Sigmoid Function**, also known as **"Logistic Function"**.  
+
+`h(x)` will give us the **probability** that our output is 1.
+```matlab
+h(x) = 0.7 % gives us a probability of 70% that our output is 1
+           % the probability of 0 is just the complement of our probability that is is 1
+		   % 1: 70% 0: 30%
+```
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/hypothesis_probability.png">  
+
+### Sigmoid Function
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/sigmoid_function.png">  
