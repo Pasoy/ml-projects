@@ -384,15 +384,36 @@ We want `0 < h(x) < 1`.
 
 ### Formula
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/hypothesis_representation.png">  
-The new formula uses the **Sigmoid Function**, also known as **"Logistic Function"**.  
+
+The new formula uses the **Sigmoid Function**, also known as **Logistic Function**.  
 
 `h(x)` will give us the **probability** that our output is 1.
 ```matlab
 h(x) = 0.7 % gives us a probability of 70% that our output is 1
            % the probability of 0 is just the complement of our probability that is is 1
-		   % 1: 70% 0: 30%
+           % 1: 70% 0: 30%
 ```
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/hypothesis_probability.png">  
 
 ### Sigmoid Function
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/sigmoid_function.png">  
+
+### Decision Boundary
+The **decision boundary** is the line that separates the area where `y = 0` and `y = 1`. It is created by our hypothesis function.  
+
+In order to get our discrete 0 or 1 classification, we can translate the output of `h(x)` as:
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/decision_1.png">  
+
+The way the logistic function `g` behaves is that when its input is greater than or equal to zero, its output is greater than or equal to 0.5
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/decision_2.png">  
+
+That means:
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/decision_3.png">  
+
+From the previous statements we can now say: 
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/decision_4.png">  
+
+#### Example
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/decision_5.png">  
+
+In this case, our decision boundary is a straight vertical line placed on the graph where `x1 = 5`, and everything to the left of that denotes`y = 1`, while everything to the rightt denotes `y = 0`.
