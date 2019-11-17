@@ -502,3 +502,36 @@ Since y = {0,1...n}, we divide our problem into n+1 (+1 because the index starts
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/onevsall.png">  
 
 We are basically choosing one class and then lumping all the others into a single second class. We do this repeatedly, applying binary logistic regression to each case, and then use the hypothesis that returned the highest value as our prediction.  
+
+# The Problem of Overfitting
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/overfitting.png">  
+
+The left figure shows the result of fitting a `y = theta(0) + theta(1)x` to a dataset. The fit is not very good.  
+Instead, if we added an extra feature x^2, and fit `y = theta(0) + theta(1)x + theta(2)x^2`, then we obtain a slightly better fit to the data. (Middle figure). Naively, it might seem that the more features we add, the better. However, there is also a danger in adding too many features: The rightmost figure is the result of fitting a 5th order polynomial. We see that even though the fitted curve passes through the data perfectly, we would not expect this to be a very good predictor of, say, housing prices (y) for different living areas (x). Without formally defining what these terms mean, we'll say the figure on the left shows an instance of **underfitting** - in which the data clearly shows structure not captured by the model - and the figure on the right is an example of **overfitting**.  
+
+Underfitting, or high bias, is when the form of our hypothesis function h maps poorly to the trend of the data. It is usually caused by a function that is too simple or uses too few features. At the other extreme, overfitting, or high variance, is caused by a hypothesis function that fits the available data but does not generalize well to predict new data. It is usually caused by a complicated function that creates a lot of unnecessary curves and angles unrelated to the data.  
+
+This terminology is applied to both linear and logistic regression. There are two main options to address the issue of overfitting:  
+ * Reduce the number of features:
+   * Manually select which features to keep
+   * Use a model selection algorithm
+ * Regularization
+   * Keep all the features, but reduce the magnitude of parameters
+   * Regularization works well when we have a lot of slightly useful features
+
+## Cost Function
+If we have overfitting from our hypothesis function, we can reduce the weight that some of the terms in our function carry by increasing their cost.  
+
+Say we wanted to make the following function more quadratic:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/overfitting_1.png">  
+
+We want to eliminate the influence of x^3 and x^4. Without actually getting rid of these features or changing the form of our hypothesis, we can instead modify our cost function:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/overfitting_2.png">  
+
+We've added two extra terms at the end to inflate the cost of θ3​ and θ4​. Now, in order for the cost function to get close to zero, we will have to reduce the values of θ3​ and θ4​ to near zero. This will in turn greatly reduce the values of θ3x^3 and θ4x^4 in our hypothesis function. As a result, we see that the new hypothesis (depicted by the pink curve) looks like a quadratic function but fits the data better due to the extra small terms θ3x^3 and θ4x^4.  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/overfitting_3.png">  
+
+We could aslo regularize all of our theta parameters in a single summation as:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/overfitting_4.png">  
+
+The lamba, is the **regularization parameter**. It determines how much the costs of our theta parameters are inflated.  
