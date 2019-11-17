@@ -556,3 +556,15 @@ L is a matrix with 0 at the top left and 1's down the diagonal, with 0's everywh
 
 Recall that if m < n, then `transpose(X) * X` is non-invertible. However, when we add the term `λ * L`, then `transpose(X) * X + λ * L` becomes invertible.
 
+## Regularized Logistic Regression
+We can regularize logistic regression in a similar way that we regularize linear regression. As a result, we can avoid overfitting. The following image shows how the regularized function, displayed by the pink line, is less likely to overfit than the non-regularized function represented by the blue line:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/overfitting_9.png">  
+
+### Cost Function
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/overfitting_10.png">  
+
+We can regularize this equation by adding a term to the end:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/overfitting_11.png">  
+
+The second sum **means to explicitly exclude** the bias term, theta0. i.e. the theta vector is indexed from 0 to n (holding n+1 values, theta0 through thetaN), and this sum skips theta0, by running from 1 to n, skipping 0. Thus, when computing the equation, we should continuosly update the following equations:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/overfitting_12.png">  
