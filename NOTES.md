@@ -436,3 +436,24 @@ If our correct answer `y is 0`, then the cost function will be 0 if our hypothes
 If our correct answer `y is 1`, then the cost function will be 0 if our hypothesis function outputs 1. If it approaches 0, then the cost function will approach infinity.  
 
 Note that writing the cost function this way guarantees that `J` is convex.
+
+## Simplified Cost Function
+We can compress the cost function's two conditional cases into one:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/simple_cost_function_1.png">  
+
+So we can fully write the entire function as follows:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/simple_cost_function_2.png">  
+
+A vectorized implementation is:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/simple_cost_function_3.png">  
+
+## Simplified Gradient Descent
+The general form of gradient descent is:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/gradient_descent.png">  
+
+We can work out the derivative part using calculus to get:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/simple_gd_1.png">  
+
+Notice that this algorithm is identical to the one we used in linear regression. We still have to simultaneously update all values in theta.  
+A vectorized implementation is:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/simple_gd_2.png">  
