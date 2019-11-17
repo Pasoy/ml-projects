@@ -416,4 +416,23 @@ From the previous statements we can now say:
 #### Example
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/decision_5.png">  
 
-In this case, our decision boundary is a straight vertical line placed on the graph where `x1 = 5`, and everything to the left of that denotes`y = 1`, while everything to the rightt denotes `y = 0`.
+In this case, our decision boundary is a straight vertical line placed on the graph where `x1 = 5`, and everything to the left of that denotes`y = 1`, while everything to the rightt denotes `y = 0`.  
+
+# Logistic Regression Model
+
+## Cost Function for Logistic Regression
+We cannot use the same cost function that we use for linear regression because the Logistic Function will cause the output to be wavy, causing many local optima. In other words, it will not be a convex function.  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/logistic_regression_1.png">  
+
+When `y = 1`, we get the following plot for `J` vs `h(x)`:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/logistic_regression_2.png">  
+
+When `y = 0`, we get the following plot for `J` vs `h(x)`:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/logistic_regression_3.png">  
+
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/logistic_regression_4.png">  
+
+If our correct answer `y is 0`, then the cost function will be 0 if our hypothesis function outputs 0. If it approaches 1, then the cost function will approach infinity.  
+If our correct answer `y is 1`, then the cost function will be 0 if our hypothesis function outputs 1. If it approaches 0, then the cost function will approach infinity.  
+
+Note that writing the cost function this way guarantees that `J` is convex.
