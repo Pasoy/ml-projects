@@ -535,3 +535,24 @@ We could aslo regularize all of our theta parameters in a single summation as:
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/overfitting_4.png">  
 
 The lamba, is the **regularization parameter**. It determines how much the costs of our theta parameters are inflated.  
+
+## Regularized Linear Regression
+We can apply regularization to both linear regression and logistic regression. We will aproach linear regression first.  
+
+### Gradient Descent
+We will modify our gradient descent function to separate out theta0 from the rest of the parameters because we do not want to penalize theta0.  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/overfitting_5.png">  
+
+The term <img src="https://github.com/Pasoy/ml-projects/blob/master/images/overfitting_6.png"> performs our regularization. With some manipulation our update rule can also be represented as:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/overfitting_7.png">  
+
+The first term in the above equation, `1−α * (λ/m)`​ will always be less than 1. Intuitively you can see it as reducing the value of `θj​` by some amount on every update. Notice that the second term is now exactly the same as it was before.  
+
+### Normal Equation
+To add in regularization, the equation is the same as our original, except that we add another term inside the parentheses:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/overfitting_8.png">  
+
+L is a matrix with 0 at the top left and 1's down the diagonal, with 0's everywhere else. It should have dimension `(n+1)×(n+1)`. Intuitively, this is the identity matrix (though we are not including `x0`​), multiplied with a single real number `λ`.  
+
+Recall that if m < n, then `transpose(X) * X` is non-invertible. However, when we add the term `λ * L`, then `transpose(X) * X + λ * L` becomes invertible.
+
