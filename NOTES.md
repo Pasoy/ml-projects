@@ -401,16 +401,16 @@ h(x) = 0.7 % gives us a probability of 70% that our output is 1
 ### Decision Boundary
 The **decision boundary** is the line that separates the area where `y = 0` and `y = 1`. It is created by our hypothesis function.  
 
-In order to get our discrete 0 or 1 classification, we can translate the output of `h(x)` as:
+In order to get our discrete 0 or 1 classification, we can translate the output of `h(x)` as:  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/decision_1.png">  
 
-The way the logistic function `g` behaves is that when its input is greater than or equal to zero, its output is greater than or equal to 0.5
+The way the logistic function `g` behaves is that when its input is greater than or equal to zero, its output is greater than or equal to 0.5  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/decision_2.png">  
 
-That means:
+That means:  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/decision_3.png">  
 
-From the previous statements we can now say: 
+From the previous statements we can now say:  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/decision_4.png">  
 
 #### Example
