@@ -457,3 +457,48 @@ We can work out the derivative part using calculus to get:
 Notice that this algorithm is identical to the one we used in linear regression. We still have to simultaneously update all values in theta.  
 A vectorized implementation is:  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/simple_gd_2.png">  
+
+## Advanced Optimization
+
+### Optimization algorithms
+ * Gradient descent
+ * Conjugate gradient
+ * BFGS
+ * L-BFGS
+ 
+"Conjugate gradient", "BFGS", and "L-BFGS" are more sophisticated, faster ways to optimize θ that can be used instead of gradient descent.  
+
+The advantages of the last 3 algorithms:
+ * No need to manually pick alpha
+ * Often faster than gradient descent
+Disadvantages:
+ * More complex
+ 
+### MATLAB
+```matlab
+% a cost function - example where theta1 = 5 and theta2 = 5
+function [jVal, gradient] = costFunction(theta)
+    jVal = (theta(1) - 5) ^ 2 + 
+           (theta(2) - 5) ^ 2; % code to compute J(theta)
+    gradient = zeroes(2,1); % create vector
+    gradient(1) = 2 * (theta(1) - 5); % derivative for theta 0
+    gradient(2) = 2 * (theta(2) - 5); % derivative for theta 1
+
+% optimization
+options = optimset('GradObj', 'on' 'MaxIter', 100);
+initialTheta = zeroes(2,1);
+[optTheta, functionVal, exitFlag] = fminunc(@costFunction, initialTheta, options)
+```
+
+# Multiclass Classification
+e.g.  
+ * Email foldering: Work `(y = 1)`, School `(y = 2)`, Hobby `(y = 3)`, Family `(y = 4)`
+ * Medical diagrams: Not ill `(y = 1)`, Cold `(y = 2)`, Flu `(y = 3)`
+ 
+## One-vs-all
+Now we will approach the classification of data when we have more than two categories. Instead of y = {0,1} we will expand our definition so that y = {0,1...n}.  
+
+Since y = {0,1...n}, we divide our problem into n+1 (+1 because the index starts at 0) binary classification problems; in each one, we predict the probability that 'y' is a member of one of our classes.  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/onevsall.png">  
+
+We are basically choosing one class and then lumping all the others into a single second class. We do this repeatedly, applying binary logistic regression to each case, and then use the hypothesis that returned the highest value as our prediction.  
