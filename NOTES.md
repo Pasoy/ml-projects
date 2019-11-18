@@ -398,6 +398,17 @@ h(x) = 0.7 % gives us a probability of 70% that our output is 1
 ### Sigmoid Function
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/sigmoid_function.png">  
 
+#### MATLAB
+```matlab
+function g = sigmoid(z)
+
+g = zeroes(size(z));
+
+g = 1 ./ (1 + exp(-z));
+
+end
+```
+
 ### Decision Boundary
 The **decision boundary** is the line that separates the area where `y = 0` and `y = 1`. It is created by our hypothesis function.  
 
@@ -417,6 +428,21 @@ From the previous statements we can now say:
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/decision_5.png">  
 
 In this case, our decision boundary is a straight vertical line placed on the graph where `x1 = 5`, and everything to the left of that denotes`y = 1`, while everything to the rightt denotes `y = 0`.  
+
+#### MATLAB
+```matlab
+% predict whether the label is 0 or 1 using learned logistic regression parameters theta
+% like if it is bigger than or equal to 0.5, predict 1
+
+m = size(X, 1); % number of training examples
+
+p = zeroes(m, 1);
+
+hypothesis = sigmoid(X * theta);
+p = (hypothesis >= 0.5);
+
+end
+```
 
 # Logistic Regression Model
 
@@ -563,8 +589,50 @@ We can regularize logistic regression in a similar way that we regularize linear
 ### Cost Function
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/overfitting_10.png">  
 
+#### MATLAB
+```matlab
+function [J, grad] = costFunction(theta, X, y)
+
+m = length(y); % number of training examples
+
+J = 0;
+grad = zeroes(size(theta));
+
+
+z = X * theta; % m x 1
+hypothesis = sigmoid(z); % m x 1
+
+J = -(1/m) * sum( (y .* log(hypothesis)) + ((1 - y) .* log(1 - hypothesis)) ); % scalar
+
+grad = (1/m) * (X' * (hypothesis - y)); % (n+1) x 1
+
+end
+```
+-----------
+
 We can regularize this equation by adding a term to the end:  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/overfitting_11.png">  
+
+```matlab
+function [J, grad] = costFunctionReg(theta, X, y, lambda)
+
+m = length(y); % number of training examples
+
+J = 0;
+grad = zeroes(size(theta));
+
+z = X * theta; % m x 1
+hypothesis = sigmoid(z); % m x 1
+
+reg_term = (lambda / (2*m)) * sum(theta(2:end) .^ 2);
+
+J = -(1/m) * sum( (y .* log(hypothesis)) + ((1 - y) .* log(1 - hypothesis)) ) + reg_term; % scalar
+
+grad(1) = (1/m) * (X(:,1)' * (hypothesis - y); % 1 x 1
+grad(2:end) = (1/m) * (X(:,2:end)' * (hypothesis - y)) + (lambda/m) * theta(2:end); % n x 1
+
+end
+```
 
 The second sum **means to explicitly exclude** the bias term, theta0. i.e. the theta vector is indexed from 0 to n (holding n+1 values, theta0 through thetaN), and this sum skips theta0, by running from 1 to n, skipping 0. Thus, when computing the equation, we should continuosly update the following equations:  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/overfitting_12.png">  
