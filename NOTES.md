@@ -636,3 +636,10 @@ end
 
 The second sum **means to explicitly exclude** the bias term, theta0. i.e. the theta vector is indexed from 0 to n (holding n+1 values, theta0 through thetaN), and this sum skips theta0, by running from 1 to n, skipping 0. Thus, when computing the equation, we should continuosly update the following equations:  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/overfitting_12.png">  
+
+# Motivations
+
+## Non-linear Hypothesis
+
+
+## Neurons and the Brain
