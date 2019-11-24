@@ -641,7 +641,7 @@ The second sum **means to explicitly exclude** the bias term, theta0. i.e. the t
 ## Non-linear Hypothesis
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nonlinear_hypothesis.png">  
 
-As the number of features increase, the **number of terms in the hypotheses would also increase**, but there is a **probability of overfitting**. So for highly complex tasks like the ones where one needs to classify objects from images, logistic regression would not perform well.
+As the number of features increase, the **number of terms in the hypothesis would also increase**, but there is a **probability of overfitting**. So for highly complex tasks like the ones where one needs to classify objects from images, logistic regression would not perform well.
 
 e.g. for images of size 100 * 100 pixels if we use all quadratic features, there would be 50 million parameters to learn.
 ```matlab
@@ -686,8 +686,36 @@ The dimensions of these matrices of weights is determined as follows:
 
 > If network has `sj` units in layer `j` and `sj+1` units in layer `j+1`, then <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn_4_oj.png"> will be of dimension <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn_4_dim.png">.  
 
-The +1 comes from the addition in <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn_4_oj.png"> of the "bias nodes" `x0` and `delta0(j)`. In other words the output nodes will not include the bias nodes while the inputs will. The following image (by Andrew N.) summarizes the model representation:  
+The +1 comes from the addition in <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn_4_oj.png"> of the "bias nodes" `x0` and `theta0(j)`. In other words the output nodes will not include the bias nodes while the inputs will. The following image (by Andrew N.) summarizes the model representation:  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn_5.png">  
 
 ### Example
-If layer 1 has 2 input nodes and layer 2 has 4 activation nodes. Dimension of `delta(1)` is going to be 4x3 where `sj = 2` and `sj+1 = 4`.  
+If layer 1 has 2 input nodes and layer 2 has 4 activation nodes. Dimension of `theta(1)` is going to be 4x3 where `sj = 2` and `sj+1 = 4`.  
+
+## Model Representation 2
+Now we do a vectorized implementation of the functions. We're going to define a new variable <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn2_2.png"> that encompasses the parameters inside the function `g`. In the previous example if we replaced by the variable `z` for all the parameters we would get:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn2_3.png">  
+
+In other words, for layer `j = 2` and node `k`, the variable `z` will be:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn2_4.png">  
+
+The vector representation of `x` and <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn2_5.png"> is:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn2_6.png">  
+
+Setting `x = a(1)`, we can rewrite the equation as:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn2_7.png">  
+
+We are multiplying our matrix <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn2_8.png"> with the dimensions `sj * (n + 1)` (where `sj` is the number of our activation nodes) by our vector `a(j -1)` with the height `(n+1)`. This gives us our vector <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn2_10.png"> with height `sj`. Now we can get a vector of our activation nodes for layer `j` as follows:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn2_9.png">  
+
+Where our function g can be applied element-wise to our vector <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn2_10.png">.  
+
+We can then add a bias unit (equal to 1) to layer `j` after we have computed <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn2_11.png">. This will be element <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn2_12.png"> and will be equal to 1. To compute the final hypothesis, we have to first compute another vector `z`.  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn2_13.png">  
+
+We get this vector by multiplying the next theta matrix after <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn2_16.png"> with the values of all the activation nodes we just got. This last theta matrix <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn2_14.png"> will have only **one row** which is multiplied by one column <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn2_11.png"> so that our result is a single number. We then get our final result with:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn2_15.png">
+
+Notice that in this **last step**, between layer `j` and layer `j+1`, we are doing exactly the same thing as we did in logistic regression. Adding all these intermediate layers in neural networks allows us to more elegantly produce interesting and more complex non-linear hyptheses.  
+
+## Examples and Intuitions
