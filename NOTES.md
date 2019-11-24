@@ -719,3 +719,14 @@ We get this vector by multiplying the next theta matrix after <img src="https://
 Notice that in this **last step**, between layer `j` and layer `j+1`, we are doing exactly the same thing as we did in logistic regression. Adding all these intermediate layers in neural networks allows us to more elegantly produce interesting and more complex non-linear hyptheses.  
 
 ## Examples and Intuitions
+The graph of our functions will look like:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai1_1.png">  
+
+Set our first theta matrix as:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai1_2.png">  
+
+This will cause the output of our hypothesis to only be positive if both `x1` and `x2` are 1. In other words:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai1_3.png">  
+
+So we have constructed one of the fundamental operations in computers by using a small neural network rather than using an actual AND gate. Neural networks can also be used to simulate all other logical gates. The following is an example of the OR gate:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai1_4.png">
