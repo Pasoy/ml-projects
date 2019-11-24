@@ -754,3 +754,14 @@ And so we have the XNOR operator using a hidden layer. Summary:
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai2_6.png">
 
 ### Multiclass Classification
+If we want to classify data into multiple classes, we let our hypothesis return a vector of values.  
+We can define our set of resulting classes as y:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai3_1.png">  
+
+Each `y(i)` represents a different image corresponding to the classes. The inner layers, each provide us with some new information which leads to our final hypothesis. The setup looks like:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai3_2.png">  
+
+Our resulting hypothesis for one set of inputs may look like:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai3_3.png">  
+
+In which case our resulting class if the third one down, or `h(x)3'`.  
