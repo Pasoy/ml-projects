@@ -1,5 +1,6 @@
 # Machine Learning
 Here are some notes I took from doing courses/reading books.
+- [Machine Learning - Andrew N.](https://www.coursera.org/learn/machine-learning)
 
 ## Contents
 - [What is Machine Learning?](#what-is-machine-learning)
@@ -719,6 +720,8 @@ We get this vector by multiplying the next theta matrix after <img src="https://
 Notice that in this **last step**, between layer `j` and layer `j+1`, we are doing exactly the same thing as we did in logistic regression. Adding all these intermediate layers in neural networks allows us to more elegantly produce interesting and more complex non-linear hyptheses.  
 
 ## Examples and Intuitions
+
+### One
 The graph of our functions will look like:  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai1_1.png">  
 
@@ -729,4 +732,25 @@ This will cause the output of our hypothesis to only be positive if both `x1` an
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai1_3.png">  
 
 So we have constructed one of the fundamental operations in computers by using a small neural network rather than using an actual AND gate. Neural networks can also be used to simulate all other logical gates. The following is an example of the OR gate:  
-<img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai1_4.png">
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai1_4.png">  
+
+### Two
+The matrices for AND, NOR, and OR are:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai2_1.png">  
+
+We can combine these to get the XNOR operator (which gives 1 if both inputs are 0 or 1)
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai2_2.png">  
+
+For the transition between the first and second layer, we will use a matrix that combines the values for AND and NOR:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai2_3.png">  
+
+For the transition between the second and third layer, we will use a matrix that uses the value for OR:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai2_4.png">  
+
+Values for all the nodes:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai2_5.png">  
+
+And so we have the XNOR operator using a hidden layer. Summary:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai2_6.png">
+
+### Multiclass Classification
