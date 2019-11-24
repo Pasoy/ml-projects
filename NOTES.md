@@ -610,8 +610,7 @@ end
 ```
 -----------
 
-We can regularize this equation by adding a term to the end:  
-<img src="https://github.com/Pasoy/ml-projects/blob/master/images/overfitting_11.png">  
+We can regularize this equation by adding a term to the end:   
 
 ```matlab
 function [J, grad] = costFunctionReg(theta, X, y, lambda)
@@ -640,6 +639,27 @@ The second sum **means to explicitly exclude** the bias term, theta0. i.e. the t
 # Motivations
 
 ## Non-linear Hypothesis
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/nonlinear_hypothesis.png"> 
 
+As the number of features increase, the **number of terms in the hypotheses would also increase**, but there is a **probability of overfitting**. So for highly complex tasks like the ones where one needs to classify objects from images, logistic regression would not perform well.
+
+e.g. for images of size 100 * 100 pixels if we use all quadratic features, there would be 50 million parameters to learn.
+```matlab
+m * n + m * n + C(m * n, 2) = 2m * n + C(m * n, 2)
+```
+
+This is where **Neural Networks** come in handy.
 
 ## Neurons and the Brain
+
+Origins:  
+ * Algorithms that try to mimic the brain
+ * Was very widely used in 80s and early 90s; popularity diminished in late 90s.
+ * Recent regurence: State-of-the-art technique for many applications
+ 
+### The "one learning algorithm" hypothesis
+The brain has a **Auditory Cortex**. To hear, our ears pick up sound signals and route it to it. If we use our eyes and for example route the inputs to the **Auditory Cortex**, it learns to see.
+
+# Neural Networks
+
+## Model Representation 1
