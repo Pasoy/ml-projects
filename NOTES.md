@@ -639,7 +639,7 @@ The second sum **means to explicitly exclude** the bias term, theta0. i.e. the t
 # Motivations
 
 ## Non-linear Hypothesis
-<img src="https://github.com/Pasoy/ml-projects/blob/master/images/nonlinear_hypothesis.png"> 
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/nonlinear_hypothesis.png">  
 
 As the number of features increase, the **number of terms in the hypotheses would also increase**, but there is a **probability of overfitting**. So for highly complex tasks like the ones where one needs to classify objects from images, logistic regression would not perform well.
 
@@ -663,3 +663,31 @@ The brain has a **Auditory Cortex**. To hear, our ears pick up sound signals and
 # Neural Networks
 
 ## Model Representation 1
+Neurons, are basically computational units that take inputs (**dendrites**) as electrical inputes (called "spikes" that are channeled to outputs (**axons**). In a simple model, the dendrites are like the input features `x1,..,xn` and the output is the result of `h(x)`. Our `x0` input node is sometimes called the "bias unit". It is always equal to 1. In neural networks, we use the same logistic function as in classification, yet we sometimes call it a sigmoid (logistic) **activation** function. Parameters are also called **weights**.  
+
+A simple representation looks like:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn_1.png">  
+
+Our input nodes, also known as the "input layer", go into another node, which finally outputs the hypothesis function, known as the "output layer".  
+We can have intermediate layers of nodes between the input and output layers called the "hidden layers".  
+
+In this example, we label these hidden layer nodes `a0^2 ... an^1` and call them "activation units".  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn_2.png">  
+
+If we had one hidden layer:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn_3.png">  
+
+The values for each of the "activation" nodes is obtained as follows:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn_4.png">  
+
+This is saying that we compute our activation nodes by using a 3x4 matrix of parameters. We apply each row of the parameters to our inputs to obtain the value for one activation node. Our hypothesis output is the logistic function applied to the sum of the values of our activation nodes, which have been multiplied by yet another parameter matrix <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn_4_o2.png"> containing the weights for our second layer of nodes.  
+Each layer gets its own matrix of weights, <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn_4_oj.png">.  
+The dimensions of these matrices of weights is determined as follows:  
+
+> If network has `sj` units in layer `j` and `sj+1` units in layer `j+1`, then <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn_4_oj.png"> will be of dimension <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn_4_dim.png">.  
+
+The +1 comes from the addition in <img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn_4_oj.png"> of the "bias nodes" `x0` and `delta0(j)`. In other words the output nodes will not include the bias nodes while the inputs will. The following image (by Andrew N.) summarizes the model representation:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/nn_5.png">  
+
+### Example
+If layer 1 has 2 input nodes and layer 2 has 4 activation nodes. Dimension of `delta(1)` is going to be 4x3 where `sj = 2` and `sj+1 = 4`.  
