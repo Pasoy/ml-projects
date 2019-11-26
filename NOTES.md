@@ -42,6 +42,43 @@ Here are some notes I took from doing courses/reading books.
     - [MATLAB](#matlab-2)
     - [Example](#example)
     - [Gradient Descent vs Normal Equation](#gradient-descent-vs-normal-equation)
+- [Classification and Representation](#classification-and-representation)
+    - [Hypothesis Representation](#hypothesis-representation)
+       - [Formula](#formula-3)
+       - [Sigmoid Function](#sigmoid-function)
+          - [MATLAB](#matlab-3)
+       - [Decision Boundary](#decision-boundary)
+          - [Example](#example-1)
+          - [MATLAB](#matlab-4)
+- [Logistic Regression Model](#logistic-regression-model)
+    - [Cost Function for Logistic Regression](#cost-function-for-logistic-regression)
+    - [Simplified Cost Function](#simplified-cost-function)
+    - [Simplified Gradient Descent](#simplified-gradient-descent)
+    - [Advanced Optimization](#advanced-algorithms)
+       - [Optimization Algorithms](#optimization-algorithms)
+       - [MATLAB](#matlab-5)
+- [Multiclass Classification](#multiclass-classification)
+    - [One-vs-all](#one-vs-all)
+- [The Problem of Overfitting](#the-problem-of-overfitting)
+    - [Cost Function](#cost-function-1)
+    - [Regularized Linear Regression](#regularized-linear-regression)
+       - [Gradient Descent](#gradient-descent-1)
+       - [Normal Equation](#normal-equation-1)
+    - [Regularized Logistic Regression](#regularized-logistic-regression)
+       - [Cost Function](#cost-function-2)
+          - [MATLAB](#matlab-6)
+- [Motivations](#motivations)
+    - [Non-linear Hypothesis](#non-linear-hypothesis)
+    - [Neurons and the Brain](#neurons-and-the-brain)
+       - [The "one learning algorithm" hypothesis](#the-one-learning-algorithm-hypothesis)
+- [Neural Networks](#neural-networks)
+    - [Model Representation 1](#model-representation-1)
+       - [Example](#example-2)
+    - [Model Representation 2](#model-representation-2)
+    - [Examples and Intuitions](#examples-and-intuitions)
+       - [One](#one)
+       - [Two](#two)
+       - [Multiclass Classification](#multiclass-classification-1)
 
 ## What is Machine Learning?
 > "A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E." - Tom Mitchell
@@ -652,6 +689,7 @@ m * n + m * n + C(m * n, 2) = 2m * n + C(m * n, 2)
 This is where **Neural Networks** come in handy.
 
 ## Neurons and the Brain
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/neurons_ab.png">  
 
 Origins:  
  * Algorithms that try to mimic the brain
