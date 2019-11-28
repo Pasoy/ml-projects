@@ -866,3 +866,11 @@ The capital-delta matrix D is used as an "accumulator" to add up our values as w
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_18.png">  
 
 ## Backpropagation Intuition
+If we consider simple non-multiclass classification (k = 1) and disregard regularization, the cost is computed with:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_19.png">  
+
+Intuitively, <img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_20.png">​ is the "error" for <img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_21.png"> (unit j in layer l). More formally, the delta values are actually the derivative of the cost function:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_22.png">  
+
+Recall that our derivative is the slope of a line tangent to the cost function, so the steeper the slope the more incorrect we are. Let us consider the following neural network below and see how we could calculate some <img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_20.png">  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_23.png">  
