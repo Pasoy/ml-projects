@@ -807,9 +807,9 @@ In which case our resulting class if the third one down, or `h(x)3'`.
 # Cost Function and Backpropagation
 
 ## Cost Function
- * **L** = total number of layers in the network
- * **sl** = number of units (not counting bias unit) in layer l
- * **K** = number of output units/classes
+ * `L` = total number of layers in the network
+ * `sl` = number of units (not counting bias unit) in layer l
+ * `K` = number of output units/classes
 
 In neural networks, we may have many outputs. We denote <img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_1.png"> as being a hypothesis that results in the `k-th` output. The cost function for neural networks is going to be a generalization of logistic regression one. Recall that the cost function for regularized logistic regression was:  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_2.png">  
@@ -827,6 +827,42 @@ Note:
  * the **i** in the triple sum does not refer to training example **i**
 
 ## Backpropagation Algorithm
+Backpropagation is neural-network terminology for minimizing the cost function. Goal is to compute:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_4.png">  
 
+That is, we want to minimize our cost function `J` using an optimal set of parameters in theta. Now we will look at the equations to use to compute the partial derivative of `J(theta)`:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_5.png">  
+
+To do so, use the following algorithm:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_6.png">  
+
+Given training set <img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_7.png">  
+ * Set <img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_8.png"> for all `(l, i, j)`, (hence you end up having a matrix full of zeros)
+
+For training example `t = 1` to m:  
+ 1. Set `a(1) := x(t)`
+ 2. Perform forward propagation to compute `a(l)` for `l = 2, 3, .., L`
+
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_9.png">  
+
+ 3. Using `y(t)`, compute <img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_10.png">  
+
+Where `L` is our total number of layers and `a(L)` is the vector of outputs of the activation units for the last layer. So our "error values" for the last layer are simply the differences of our actual results in the last layer and the correct outputs in `y`. To get the delta values of the layers before the last layer, we can use an equation that steps back from right to left:  
+
+ 4. Compute <img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_11.png"> using <img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_12.png">
+
+The delta values of layer `l` are calculated by multiplying the delta values in the next layer with the theta matrix of layer `l`. Then element-wise multiply that with a function called `g'`, or **g-prime**, which is the derivative of the activation function `g` evaluated with the input values given by `z(l)`
+
+The **g-prime** derivative terms can also be written out as:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_13.png">  
+
+ 5. <img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_14.png"> or with vectorization, <img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_15.png">  
+ 
+Hence we update our new capital-delta matrix
+ * <img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_16.png">  
+ * <img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_17.png">  
+
+The capital-delta matrix D is used as an "accumulator" to add up our values as we go along and eventually compute our partial derivative. Thus we get:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_18.png">  
 
 ## Backpropagation Intuition
