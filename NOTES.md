@@ -776,7 +776,7 @@ So we have constructed one of the fundamental operations in computers by using a
 The matrices for AND, NOR, and OR are:  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai2_1.png">  
 
-We can combine these to get the XNOR operator (which gives 1 if both inputs are 0 or 1)
+We can combine these to get the XNOR operator (which gives 1 if both inputs are 0 or 1)  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai2_2.png">  
 
 For the transition between the first and second layer, we will use a matrix that combines the values for AND and NOR:  
@@ -803,3 +803,30 @@ Our resulting hypothesis for one set of inputs may look like:
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/eai3_3.png">  
 
 In which case our resulting class if the third one down, or `h(x)3'`.  
+
+# Cost Function and Backpropagation
+
+## Cost Function
+ * **L** = total number of layers in the network
+ * **sl** = number of units (not counting bias unit) in layer l
+ * **K** = number of output units/classes
+
+In neural networks, we may have many outputs. We denote <img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_1.png"> as being a hypothesis that results in the `k-th` output. The cost function for neural networks is going to be a generalization of logistic regression one. Recall that the cost function for regularized logistic regression was:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_2.png">  
+
+For neural networks, it is going to be:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_3.png">  
+
+Nested summations have been added to account for multiple output nodes. In the first part of the equation, before the square brackets, there is an additional nested summation that loops through the number of output nodes.  
+
+In the regularization part, after the square brackets, it must account for multiple theta matrices. The number of columns in our current theta matrix is equal to the number of nodes in our current layer (including the bias unit). The number of rows in our current theta matrix is equal to the number of nodes in the next layer (excluding the bias unit). As before with logistic regression, every term is squared.  
+
+Note:  
+ * the double sum simply adds up the logistic regression costs calculated for each cell in the output layer
+ * the triple sum simply adds up the squares of all the individual thetas in the entire network
+ * the **i** in the triple sum does not refer to training example **i**
+
+## Backpropagation Algorithm
+
+
+## Backpropagation Intuition
