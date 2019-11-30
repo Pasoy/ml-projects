@@ -898,6 +898,29 @@ Summary:
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/bip_2.png">  
 
 ## Gradient Checking
+Gradient checking will assure that backpropagation works as intendet. It is possible to approximate the derivative of the cost function with:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/bip_3.png">  
+
+With multiple theta matrices, we can approximate the derivative **with respect to `thetaJ`**:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/bip_4.png">  
+
+A small value for epsilon such as `10^(-4)`, guarantees that the match works out properly. If the value is too small, we can end up with numerical problems.  
+
+That is why we are only adding or subtracting epsilon to the deltaJ matrix.  
+```matlab
+epsilon = 1e-4;
+for i = 1:n,
+  thetaPlus = theta;
+  thetaPlus(i) += epsilon;
+  thetaMinus = theta;
+  thetaMinus(i) -= epsilon;
+  gradApprox(i) = (J(thetaPlus) - J(thetaMinus))/(2*epsilon)
+end;
+```
+
+Once we compute the gradApprox vector, we can check that gradApprox is around the same as deltaVector.
+
+When verfified once that the backpropagation algorithm is correct, no need to compute gradApprox again. The code to compute gradApprox can be very slow.  
 
 ## Random Initialization
 
