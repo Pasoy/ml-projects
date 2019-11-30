@@ -940,7 +940,28 @@ Theta3 = rand(1,11) * (2 * INIT_EPSILON) - INIT_EPSILON;
 Note: the epsilon used above is unrelated to the epsilon from Gradient Checking  
 
 ## Putting it Together
+First, pick a network architecture; choose the layout of your neural network, including how many hidden units in each layer and how many layers in total you want to have.  
+ * Number of input units = dimension of features `x(i)`
+ * Number of output units = number of classes
+ * Number of hidden units per layer = usually more the better (must balance with cost of computation as it increases with more hidden units)
+ * Defaults: 1 hidden layer. If there is more, it is recommended that you have the same number of units in every hidden layer.
+ 
+### Training a Neural Network
+ 1. Randomly initialize the weights
+ 2. Implement forward propagation to get `h(x(i))` for any `x(i)`
+ 3. Implement the cost function
+ 4. Implement backpropagation to compute partial derivatives
+ 5. Use gradient checking to confirm that backpropagation works. Then disable gradient checking
+ 6. Use gradient descent or a built-in optimization function to minimize the cost function with the weights in theta
 
-# Application of Neural Networks
+When we perform forward- and backpropagation, we loop on every training example:  
+```matlab
+for i = 1:m,
+   Perform forward propagation and backpropagation using example (x(i),y(i))
+   (Get activations a(l) and delta terms d(l) for l = 2,...,L
+```
 
-## Autonomous Driving
+The following image gives us an intuition of what is happening as we are implementing our neural network:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/bip_6.png">  
+
+Ideally, we want `h(x(i))` to be around the same as `y(i)`. This will minimize the cost function. However, keep in mind that `J(theta)` is not convex and thus we can end up in a local minimum instead.  
