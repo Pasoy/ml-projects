@@ -874,3 +874,35 @@ Intuitively, <img src="https://github.com/Pasoy/ml-projects/blob/master/images/c
 
 Recall that our derivative is the slope of a line tangent to the cost function, so the steeper the slope the more incorrect we are. Let us consider the following neural network below and see how we could calculate some <img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_20.png">  
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/cfab_23.png">  
+
+# Backpropagation in Practice
+
+## Unrolling Parameters
+With neural networks, we are working with sets  of matrices:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/bip_1.png">  
+
+In order to use optimizing functions such as `fminunc()`, we want to "*unroll*" all the elements and put them into one long vector:  
+```matlab
+thetaVector = [ Theta1(:); Theta2(:); Theta3(:); ]
+deltaVector = [ D1(:); D2(:); D3(:) ]
+```
+
+If the dimensions of Theta1 is `10x11`, Theta2 is `10x11` and Theta3 is `1x11`, then we can get back our original matrices from the "unrolled versions":  
+```matlab
+Theta1 = reshape(thetaVector(1:110),10,11)
+Theta2 = reshape(thetaVector(111:220),10,11)
+Theta3 = reshape(thetaVector(221:231),1,11)
+```
+
+Summary:  
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/bip_2.png">  
+
+## Gradient Checking
+
+## Random Initialization
+
+## Putting it Together
+
+# Application of Neural Networks
+
+## Autonomous Driving
