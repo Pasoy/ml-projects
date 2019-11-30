@@ -923,6 +923,21 @@ Once we compute the gradApprox vector, we can check that gradApprox is around th
 When verfified once that the backpropagation algorithm is correct, no need to compute gradApprox again. The code to compute gradApprox can be very slow.  
 
 ## Random Initialization
+Initializing all theta weights to zero does not work with neural networks. When we backpropagate, all nodes will update to the same value repeatedly. Instead we can randomly initialize our weights for our `theta` matrices using:  
+
+<img src="https://github.com/Pasoy/ml-projects/blob/master/images/bip_5.png">  
+
+Hence, we initialize each `thetaIJ` to a random value between `[-epsilon, epsilon]`. Using the above formula guarantees that we get the desired bound. The same procedure applies to all the `thetas`. Below is some working code to experiment.  
+```matlab
+% If the dimensions of Theta1 is 10x11, Theta2 is 10x11 and Theta3 is 1x11.
+
+Theta1 = rand(10,11) * (2 * INIT_EPSILON) - INIT_EPSILON;
+Theta2 = rand(10,11) * (2 * INIT_EPSILON) - INIT_EPSILON;
+Theta3 = rand(1,11) * (2 * INIT_EPSILON) - INIT_EPSILON;
+```
+
+`rand(x, y)` is a function that will initialize a matrix of random real numbers between 0 and 1.  
+Note: the epsilon used above is unrelated to the epsilon from Gradient Checking  
 
 ## Putting it Together
 
