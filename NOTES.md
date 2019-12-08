@@ -965,3 +965,7 @@ The following image gives us an intuition of what is happening as we are impleme
 <img src="https://github.com/Pasoy/ml-projects/blob/master/images/bip_6.png">  
 
 Ideally, we want `h(x(i))` to be around the same as `y(i)`. This will minimize the cost function. However, keep in mind that `J(theta)` is not convex and thus we can end up in a local minimum instead.  
+
+# Evaluating a Learning Algorithm
+
+## Evaluating a Hypothesis
